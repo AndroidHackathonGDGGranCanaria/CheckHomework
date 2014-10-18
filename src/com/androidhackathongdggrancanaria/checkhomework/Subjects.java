@@ -10,7 +10,7 @@ public class Subjects {
 	public static final Subjects MATHEMATICS = new Subjects("Matematicas", R.color.matematicas);
 	public static final Subjects LANGUAGE = new Subjects("Lengua", R.color.lengua);
 	public static final Subjects ENGLISH = new Subjects("Ingles", R.color.ingles);
-	public static final Subjects SCIENS = new Subjects("Conocimiento del medio", R.color.ciencias);
+	public static final Subjects SCIENS = new Subjects("CONO", R.color.ciencias);
 	
 	private Subjects(String name, int color) {
 		

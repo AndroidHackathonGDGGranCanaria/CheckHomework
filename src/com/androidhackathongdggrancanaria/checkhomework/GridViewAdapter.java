@@ -58,7 +58,7 @@ public class GridViewAdapter extends BaseAdapter {
         }
 		TextView tvAsignatura = (TextView) convertView.findViewById(R.id.tvAsignatura);
 		TextView tvDescripcion = (TextView) convertView.findViewById(R.id.tvDescripcion);
-		tvAsignatura.setText(subsjects.get(tasks.get(position).getSubject()).getName());
+		tvAsignatura.setText(subsjects.get(tasks.get(position).getSubject()).getName().toUpperCase());
 		
 		((LinearLayout) convertView.findViewById(R.id.llCell))
 		.setBackgroundColor(context.getResources().getColor(subsjects.get(tasks.get(position).getSubject()).getColor()));

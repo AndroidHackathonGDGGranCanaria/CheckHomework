@@ -19,10 +19,11 @@ public class TaskManager {
 	private String[] columns = {
 		MySQLHelper.CHECK_TABLE_ID_COLUMN,
 		MySQLHelper.CHECK_TABLE_SUBJECT_COLUMN,
-		MySQLHelper.CHECK_TABLE_SONID_COLUMN,
 		MySQLHelper.CHECK_TABLE_LIMIT_COLUMN,
-		MySQLHelper.CHECK_TABLE_DONE_COLUMN,
 		MySQLHelper.CHECK_TABLE_DESCRIPTION_COLUMN,
+		MySQLHelper.CHECK_TABLE_SONID_COLUMN,
+		MySQLHelper.CHECK_TABLE_DONE_COLUMN,
+		
 	};
 	
 	public TaskManager(Context context) {
@@ -104,10 +105,10 @@ public class TaskManager {
 		ContentValues values = new ContentValues();
 		values.put(this.columns[0], task.getId() );
 		values.put(this.columns[1], task.getSubject());
-		values.put(this.columns[2], task.getSonId());
-		values.put(this.columns[3], task.getLimit());
-		values.put(this.columns[4], parseBoolean(task.isDone()));
-		values.put(this.columns[5], task.getDescription());
+		values.put(this.columns[2], task.getLimit());
+		values.put(this.columns[3], task.getDescription());
+		values.put(this.columns[4], task.getSonId());
+		values.put(this.columns[5], parseBoolean(task.isDone()));
 		return values;
 	}
 
