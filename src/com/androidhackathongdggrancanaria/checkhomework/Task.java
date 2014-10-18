@@ -10,21 +10,20 @@ public class Task{
 	private Long id;
 	@SerializedName("subject")
 	private String subject;
-	@SerializedName("limit")
-	private Date limit;
+	@SerializedName("limitdate")
+	private String limit;
 	@SerializedName("description")
 	private String description;
-	@SerializedName("sonId")
+	@SerializedName("sonid")
 	private Long sonId;
-	@SerializedName("done")
-	private Boolean done;
+	private Boolean done = false;
 	
 	
 	
 	public Task() {
 	
 	}
-	public Task(long _id, String subject, Date limit, String description,
+	public Task(long _id, String subject, String limit, String description,
 			long sonId, boolean done) {
 		this.id = _id;
 		this.subject = subject;
@@ -45,10 +44,10 @@ public class Task{
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public Date getLimit() {
+	public String getLimit() {
 		return limit;
 	}
-	public void setLimit(Date limit) {
+	public void setLimit(String limit) {
 		this.limit = limit;
 	}
 	public String getDescription() {

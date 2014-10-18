@@ -1,16 +1,18 @@
 package com.androidhackathongdggrancanaria.checkhomework;
 
+import android.graphics.drawable.Drawable;
+
 public class Subjects {
 	
 	private String name;
-	private String color;
+	private int color;
 	
-	public final Subjects MATHEMATICS = new Subjects("Matematicas", "#E2001D");
-	public final Subjects LANGUAGE = new Subjects("Lengua", "#E0CB00");
-	public final Subjects ENGLISH = new Subjects("Ingles", "#0D71B5");
-	public final Subjects SCIENS = new Subjects("Conocimiento del medio", "#0D6FB3");
+	public static final Subjects MATHEMATICS = new Subjects("Matematicas", R.color.matematicas);
+	public static final Subjects LANGUAGE = new Subjects("Lengua", R.color.lengua);
+	public static final Subjects ENGLISH = new Subjects("Ingles", R.color.ingles);
+	public static final Subjects SCIENS = new Subjects("Conocimiento del medio", R.color.ciencias);
 	
-	private Subjects(String name, String color) {
+	private Subjects(String name, int color) {
 		
 		this.name = name;
 		this.color = color;
@@ -24,11 +26,11 @@ public class Subjects {
 		this.name = name;
 	}
 
-	public String getColor() {
+	public int getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(int color) {
 		this.color = color;
 	}
 	
