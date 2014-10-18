@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Task{
 	
-	@SerializedName("_id")
-	private Long _id;
+	@SerializedName("id")
+	private Long id;
 	@SerializedName("subject")
 	private String subject;
 	@SerializedName("limit")
@@ -26,18 +26,18 @@ public class Task{
 	}
 	public Task(long _id, String subject, Date limit, String description,
 			long sonId, boolean done) {
-		this._id = _id;
+		this.id = _id;
 		this.subject = subject;
 		this.limit = limit;
 		this.description = description;
 		this.sonId = sonId;
 		this.done = done;
 	}
-	public long get_id() {
-		return _id;
+	public long getId() {
+		return id;
 	}
 	public void set_id(long _id) {
-		this._id = _id;
+		this.id = _id;
 	}
 	public String getSubject() {
 		return subject;

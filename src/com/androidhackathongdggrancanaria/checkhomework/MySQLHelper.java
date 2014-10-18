@@ -20,7 +20,7 @@ public class MySQLHelper extends SQLiteOpenHelper {
 			"create table "
 						+ CHECK_TABLE_NAME 
 						+ "("
-						+ CHECK_TABLE_ID_COLUMN + " integer primary key autoincrement, "
+						+ CHECK_TABLE_ID_COLUMN + " integer primary key, "
 						+ CHECK_TABLE_SUBJECT_COLUMN + " text,"
 						+ CHECK_TABLE_DESCRIPTION_COLUMN + " text,"
 						+ CHECK_TABLE_LIMIT_COLUMN + " text,"

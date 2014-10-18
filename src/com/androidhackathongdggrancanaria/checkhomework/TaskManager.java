@@ -10,6 +10,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class TaskManager {
 	
@@ -38,44 +39,39 @@ public class TaskManager {
 	
 	public void save(Task task){
 		ContentValues values = getTaskContentValues(task);
-		this.open();
+
 		database.insert(MySQLHelper.CHECK_TABLE_NAME, null, values);
-		this.close();
-	}
+}
 	
 	public void removeUntilDate(Date date) {
 		String dateString = this.parseDate(date);
-		this.open();
 		database.execSQL("DELETE FROM " 
 				+ MySQLHelper.CHECK_TABLE_NAME 
 				+ " WHERE " 
 				+ "Date(" + MySQLHelper.CHECK_TABLE_LIMIT_COLUMN + ") <" 
 				+ "Date(" + dateString + ")");
-		this.close();
-	}
+		}
 	
 	public void update(Task task){
 		ContentValues values = getTaskContentValues(task);
-		this.open();
-		database.update(MySQLHelper.CHECK_TABLE_NAME, values, "_id=?", new String[]{task.get_id() + ""});
-		this.close();
+		database.update(MySQLHelper.CHECK_TABLE_NAME, values, "_id=?", new String[]{task.getId() + ""});
 	}
 	
 	public ArrayList<Task> getTasks(){ 
-		this.open();
 		Cursor cursor = database.query(MySQLHelper.CHECK_TABLE_NAME, columns, null, null, null, null, null);
 		return getTasksFromCursos(cursor);
 	}
 
 	private ArrayList<Task> getTasksFromCursos(Cursor cursor) {
 		ArrayList<Task> res = new ArrayList<Task>();
+		Log.e("TaskMain", "getTasksFromCursos" );
 		cursor.moveToFirst();
-		while (cursor.isAfterLast()) {
+		while ( ! cursor.isAfterLast()) {
+			
 			res.add(this.createTaskFromCursos(cursor));
 			cursor.moveToNext();
 		}
 		cursor.close();
-		this.close();
 		return res;
 	}
 
@@ -90,7 +86,7 @@ public class TaskManager {
 		return res;
 	}
 
-	private Date parseStringToDate(String string) {
+	protected Date parseStringToDate(String string) {
 		try {
 			return new SimpleDateFormat("yyyy-MM-dd").parse(string);
 		} catch (ParseException e) {
@@ -103,6 +99,7 @@ public class TaskManager {
 	private ContentValues getTaskContentValues(Task task) {
 		// TODO Auto-generated method stub
 		ContentValues values = new ContentValues();
+		values.put(this.columns[0], task.getId() );
 		values.put(this.columns[1], task.getSubject());
 		values.put(this.columns[2], task.getSonId());
 		values.put(this.columns[3], parseDate(task.getLimit()));
@@ -119,7 +116,7 @@ public class TaskManager {
 		return (done == 1)?true:false;
 	}
 	
-	private String parseDate(Date date){
+	protected String parseDate(Date date){
 		return new SimpleDateFormat("yyyy-MM-dd").format(date);
 	}
 	

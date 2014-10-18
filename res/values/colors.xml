@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="matematicas">#E2001D </color>
+    <color name="lengua">#E2001D </color>
+    <color name="ingles">#E2001D </color>
+    <color name="ciencias">#E2001D </color>
+
+</resources>
