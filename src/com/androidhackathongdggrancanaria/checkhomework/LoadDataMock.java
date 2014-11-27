@@ -19,7 +19,7 @@ public class LoadDataMock implements LoadData {
 		return new Task(
 				randomObject.nextLong(),
 				"Random String " +randomObject.nextLong(),
-				new Date(),
+				"12-92-63",
 				"Random Description "+randomObject.nextLong(),
 				1,
 				false

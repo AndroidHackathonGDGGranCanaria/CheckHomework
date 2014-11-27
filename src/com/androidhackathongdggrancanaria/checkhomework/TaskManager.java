@@ -19,10 +19,11 @@ public class TaskManager {
 	private String[] columns = {
 		MySQLHelper.CHECK_TABLE_ID_COLUMN,
 		MySQLHelper.CHECK_TABLE_SUBJECT_COLUMN,
-		MySQLHelper.CHECK_TABLE_SONID_COLUMN,
 		MySQLHelper.CHECK_TABLE_LIMIT_COLUMN,
-		MySQLHelper.CHECK_TABLE_DONE_COLUMN,
 		MySQLHelper.CHECK_TABLE_DESCRIPTION_COLUMN,
+		MySQLHelper.CHECK_TABLE_SONID_COLUMN,
+		MySQLHelper.CHECK_TABLE_DONE_COLUMN,
+		
 	};
 	
 	public TaskManager(Context context) {
@@ -39,7 +40,6 @@ public class TaskManager {
 	
 	public void save(Task task){
 		ContentValues values = getTaskContentValues(task);
-
 		database.insert(MySQLHelper.CHECK_TABLE_NAME, null, values);
 }
 	
@@ -51,6 +51,10 @@ public class TaskManager {
 				+ "Date(" + MySQLHelper.CHECK_TABLE_LIMIT_COLUMN + ") <" 
 				+ "Date(" + dateString + ")");
 		}
+	public void removeAll() {
+		
+		database.delete(MySQLHelper.CHECK_TABLE_NAME, null, null);
+	}
 	
 	public void update(Task task){
 		ContentValues values = getTaskContentValues(task);
@@ -79,7 +83,7 @@ public class TaskManager {
 		Task res = new Task();
 		res.set_id(cursor.getLong(0));
 		res.setSubject(cursor.getString(1));
-		res.setLimit(parseStringToDate(cursor.getString(2)));
+		res.setLimit(cursor.getString(2));
 		res.setDescription(cursor.getString(3));
 		res.setSonId(cursor.getLong(4));
 		res.setDone(parseIntToBoolean(cursor.getInt(5)));
@@ -101,10 +105,10 @@ public class TaskManager {
 		ContentValues values = new ContentValues();
 		values.put(this.columns[0], task.getId() );
 		values.put(this.columns[1], task.getSubject());
-		values.put(this.columns[2], task.getSonId());
-		values.put(this.columns[3], parseDate(task.getLimit()));
-		values.put(this.columns[4], parseBoolean(task.isDone()));
-		values.put(this.columns[5], task.getDescription());
+		values.put(this.columns[2], task.getLimit());
+		values.put(this.columns[3], task.getDescription());
+		values.put(this.columns[4], task.getSonId());
+		values.put(this.columns[5], parseBoolean(task.isDone()));
 		return values;
 	}
 

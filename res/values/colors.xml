@@ -2,8 +2,8 @@
 <resources>
 
     <color name="matematicas">#E2001D </color>
-    <color name="lengua">#E2001D </color>
-    <color name="ingles">#E2001D </color>
-    <color name="ciencias">#E2001D </color>
+    <color name="lengua">#E0CB00 </color>
+    <color name="ingles">#0D71B5 </color>
+    <color name="ciencias">#009136 </color>
 
 </resources>

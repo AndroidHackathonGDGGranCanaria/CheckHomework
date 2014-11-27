@@ -8,19 +8,13 @@
         android:id="@+id/tvDate"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="25"
+        android:layout_weight="50"
+        android:background="@drawable/head"
         android:gravity="center"
         android:text="Fecha"    
         android:padding="5dp" 
         />
-    <ImageView
-         android:id="@+id/ivHeader"
-         android:layout_weight="25"
-         android:layout_width="match_parent"
-         android:layout_height="0dp"
-         android:src="@drawable/ic_launcher"
-         android:padding="5dp"
-        />
+
     <GridView
         android:id="@+id/gvTasks"
         android:numColumns="2"

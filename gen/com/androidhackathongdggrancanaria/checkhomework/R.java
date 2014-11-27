@@ -28,13 +28,14 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int head=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
         public static final int action_settings=0x7f090006;
-        public static final int gvTasks=0x7f090002;
+        public static final int gvTasks=0x7f090001;
         public static final int ivCheckItem=0x7f090003;
-        public static final int ivHeader=0x7f090001;
+        public static final int llCell=0x7f090002;
         public static final int tvAsignatura=0x7f090004;
         public static final int tvDate=0x7f090000;
         public static final int tvDescripcion=0x7f090005;
